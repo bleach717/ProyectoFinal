@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoFinal.Views.vLogin"
+             BackgroundColor="#FAF9FF">
+    <ScrollView>
+        <VerticalStackLayout Padding="30,100,30,30"
+                             Spacing="25"
+                             VerticalOptions="CenterAndExpand">
+
+            <!-- Ícono superior -->
+            <Frame WidthRequest="70"
+                   HeightRequest="70"
+                   CornerRadius="20"
+                   BackgroundColor="#7C3AED"
+                   HorizontalOptions="Center"
+                   HasShadow="False">
+                <Image Source="icon_activos.png"
+                       WidthRequest="35"
+                       HeightRequest="35"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"/>
+            </Frame>
+
+            <!-- Título -->
+            <Label Text="Gestión de Activos"
+                   FontSize="26"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="#000000"/>
+
+            <!-- Subtítulo -->
+            <Label Text="Administra y transfiere activos de forma segura"
+                   FontSize="14"
+                   TextColor="#666666"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center"/>
+
+            <!-- Campo de correo -->
+            <VerticalStackLayout>
+                <Label Text="Correo electrónico"
+                       FontSize="13"
+                       TextColor="#333333"
+                       Margin="0,10,0,3"/>
+                <Frame CornerRadius="25"
+                       HasShadow="False"
+                       BackgroundColor="White"
+                       BorderColor="#E5E5E5">
+                    <Entry x:Name="txtCorreo"
+                           Placeholder="usuario@empresa.com"
+                           Keyboard="Email"
+                           TextColor="Black"
+                           PlaceholderColor="#999999"
+                           FontSize="14"/>
+                </Frame>
+            </VerticalStackLayout>
+
+            <!-- Campo de contraseña -->
+            <VerticalStackLayout>
+                <Label Text="Contraseña"
+                       FontSize="13"
+                       TextColor="#333333"
+                       Margin="0,10,0,3"/>
+                <Frame CornerRadius="25"
+                       HasShadow="False"
+                       BackgroundColor="White"
+                       BorderColor="#E5E5E5">
+                    <Entry x:Name="txtPassword"
+                           Placeholder="••••••••"
+                           IsPassword="True"
+                           TextColor="Black"
+                           PlaceholderColor="#999999"
+                           FontSize="14"/>
+                </Frame>
+            </VerticalStackLayout>
+
+            <!-- Botón de inicio -->
+            <Button Text="Iniciar Sesión"
+                    x:Name="btn_iniciar"
+                    BackgroundColor="#7C3AED"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    CornerRadius="25"
+                    HeightRequest="50"
+                    Margin="0,20,0,0"
+                    Clicked="btn_iniciar_Clicked"/>
+
+            <!-- Enlace de recuperación -->
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Label Text="¿Olvidaste tu contraseña?"
+                       FontSize="13"
+                       TextColor="#555555"/>
+                <Label Text=" Recuperar acceso"
+                       FontSize="13"
+                       TextColor="#7C3AED"
+                       FontAttributes="Bold"/>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
