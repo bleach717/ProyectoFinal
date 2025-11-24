@@ -1,3 +1,6 @@
+using System.Net;
+using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace ProyectoFinal.Views;
@@ -11,6 +14,77 @@ public partial class vLogin : ContentPage
 
     private async void btn_iniciar_Clicked(object sender, EventArgs e)
     {
-		await Navigation.PushAsync(new vPrincipal());
+        try
+        {
+            // VALIDACIONES
+            if (string.IsNullOrWhiteSpace(txtCorreo.Text))
+            {
+                await DisplayAlert("Error", "Ingresa tu correo.", "OK");
+                return;
+            }
+
+            if (!Regex.IsMatch(txtCorreo.Text, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
+            {
+                await DisplayAlert("Error", "Correo inválido.", "OK");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtPassword.Text))
+            {
+                await DisplayAlert("Error", "Ingresa tu contraseña.", "OK");
+                return;
+            }
+
+            // === PETICIÓN AL MICRO SERVICIO ===
+            WebClient cliente = new WebClient();
+            var parametros = new System.Collections.Specialized.NameValueCollection();
+
+            parametros.Add("correo", txtCorreo.Text);
+            parametros.Add("contrasena", txtPassword.Text);
+
+            try
+            {
+                byte[] response = cliente.UploadValues("http://127.0.0.1/wsproyecto/restUsuario.php?login=1", "POST", parametros);
+
+                string json = Encoding.UTF8.GetString(response);
+
+                var user = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, object>>(json);
+
+                await DisplayAlert("? Bienvenido", $"Hola {user["nombre"]}", "OK");
+
+                // Ir al menú
+                await Navigation.PushAsync(new vPrincipal());
+            }
+            catch (WebException ex)
+            {
+                using (var reader = new StreamReader(ex.Response.GetResponseStream()))
+                {
+                    string result = reader.ReadToEnd();
+
+                    try
+                    {
+                        var error = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, string>>(result);
+
+                        if (error.ContainsKey("error"))
+                        {
+                            await DisplayAlert("? Error", error["error"], "OK");
+                            return;
+                        }
+                    }
+                    catch { }
+
+                    await DisplayAlert("Error", "Error inesperado del servidor.", "OK");
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlert("Error", ex.Message, "OK");
+        }
+    }
+
+    private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
+    {
+        await Navigation.PushAsync(new vRegistro());
     }
 }

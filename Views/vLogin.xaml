@@ -87,13 +87,17 @@
 
             <!-- Enlace de recuperación -->
             <HorizontalStackLayout HorizontalOptions="Center">
-                <Label Text="¿Olvidaste tu contraseña?"
+                <Label Text="No tiene usuario,  " FontSize="13" TextColor="#555555"/>
+
+                <Label Text="Crear usuario"
                        FontSize="13"
-                       TextColor="#555555"/>
-                <Label Text=" Recuperar acceso"
-                       FontSize="13"
-                       TextColor="#7C3AED"
-                       FontAttributes="Bold"/>
+                       TextColor="#007AFF"
+                       TextDecorations="Underline">
+
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                    </Label.GestureRecognizers>
+                </Label>
             </HorizontalStackLayout>
         </VerticalStackLayout>
     </ScrollView>

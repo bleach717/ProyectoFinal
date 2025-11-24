@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoFinal.Views.vRegistro"
+             BackgroundColor="#FAF9FF">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="25"
+                             Spacing="25"
+                             VerticalOptions="Center">
+
+            <!-- Ícono -->
+            <Frame WidthRequest="70"
+                   HeightRequest="70"
+                   CornerRadius="20"
+                   BackgroundColor="#7C3AED"
+                   HorizontalOptions="Center"
+                   HasShadow="False">
+                <Image Source="icon_activos.png"
+                       WidthRequest="35"
+                       HeightRequest="35"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"/>
+            </Frame>
+
+            <!-- Título -->
+            <Label Text="Crear Cuenta"
+                   FontSize="26"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="#000000"/>
+
+            <!-- Subtítulo -->
+            <Label Text="Registra tus datos para continuar"
+                   FontSize="14"
+                   TextColor="#666666"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center"/>
+
+            <!-- Campo nombre -->
+            <VerticalStackLayout>
+                <Label Text="Nombre"
+                       FontSize="13"
+                       TextColor="#333333"
+                       Margin="0,10,0,3"/>
+                <Frame CornerRadius="25"
+                       BackgroundColor="White"
+                       BorderColor="#E5E5E5"
+                       HasShadow="False">
+                    <Entry x:Name="txtNombre"
+                           Placeholder="Juan"
+                           TextColor="Black"
+                           PlaceholderColor="#999999"
+                           FontSize="14"/>
+                </Frame>
+            </VerticalStackLayout>
+
+            <!-- Campo apellido -->
+            <VerticalStackLayout>
+                <Label Text="Apellido"
+                       FontSize="13"
+                       TextColor="#333333"
+                       Margin="0,10,0,3"/>
+                <Frame CornerRadius="25"
+                       BackgroundColor="White"
+                       BorderColor="#E5E5E5"
+                       HasShadow="False">
+                    <Entry x:Name="txtApellido"
+                           Placeholder="Perez"
+                           TextColor="Black"
+                           PlaceholderColor="#999999"
+                           FontSize="14"/>
+                </Frame>
+            </VerticalStackLayout>
+
+            <!-- Campo cédula -->
+            <VerticalStackLayout>
+                <Label Text="Cédula"
+                       FontSize="13"
+                       TextColor="#333333"
+                       Margin="0,10,0,3"/>
+                <Frame CornerRadius="25"
+                       BackgroundColor="White"
+                       BorderColor="#E5E5E5"
+                       HasShadow="False">
+                    <Entry x:Name="txtCedula"
+                           Placeholder="0102030405"
+                           Keyboard="Numeric"
+                           MaxLength="10"
+                           TextColor="Black"
+                           PlaceholderColor="#999999"
+                           FontSize="14"/>
+                </Frame>
+            </VerticalStackLayout>
+
+            <!-- Campo correo -->
+            <VerticalStackLayout>
+                <Label Text="Correo electrónico"
+                       FontSize="13"
+                       TextColor="#333333"
+                       Margin="0,10,0,3"/>
+                <Frame CornerRadius="25"
+                       BackgroundColor="White"
+                       BorderColor="#E5E5E5"
+                       HasShadow="False">
+                    <Entry x:Name="txtCorreo"
+                           Placeholder="usuario@empresa.com"
+                           Keyboard="Email"
+                           TextColor="Black"
+                           PlaceholderColor="#999999"
+                           FontSize="14"/>
+                </Frame>
+            </VerticalStackLayout>
+
+            <!-- Campo contraseña -->
+            <VerticalStackLayout>
+                <Label Text="Contraseña"
+                       FontSize="13"
+                       TextColor="#333333"
+                       Margin="0,10,0,3"/>
+                <Frame CornerRadius="25"
+                       BackgroundColor="White"
+                       BorderColor="#E5E5E5"
+                       HasShadow="False">
+                    <Entry x:Name="txtPassword"
+                           Placeholder="••••••••"
+                           IsPassword="True"
+                           TextColor="Black"
+                           PlaceholderColor="#999999"
+                           FontSize="14"/>
+                </Frame>
+            </VerticalStackLayout>
+            
+            <VerticalStackLayout>
+                <Label Text="Verifica la Contraseña"
+                       FontSize="13"
+                       TextColor="#333333"
+                       Margin="0,10,0,3"/>
+                <Frame CornerRadius="25"
+                       BackgroundColor="White"
+                       BorderColor="#E5E5E5"
+                       HasShadow="False">
+                    <Entry x:Name="txtVerificarPassword"
+                           Placeholder="••••••••"
+                           IsPassword="True"
+                           TextColor="Black"
+                           PlaceholderColor="#999999"
+                           FontSize="14"/>
+                </Frame>
+            </VerticalStackLayout>
+
+            <!-- Botón registrar -->
+            <Button Text="Registrar Usuario"
+                    x:Name="btnRegistrar"
+                    BackgroundColor="#7C3AED"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    CornerRadius="25"
+                    HeightRequest="50"
+                    Margin="0,20,0,0"
+                    Clicked="btnRegistrar_Clicked"/>
+
+            <!-- Volver al login -->
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Label Text="¿Ya tienes cuenta? "
+                       FontSize="13"
+                       TextColor="#555555"/>
+
+                <Label Text="Iniciar sesión"
+                       FontSize="13"
+                       TextColor="#007AFF"
+                       TextDecorations="Underline">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
