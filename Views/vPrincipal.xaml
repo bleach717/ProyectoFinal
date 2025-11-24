@@ -5,175 +5,179 @@
     x:Class="ProyectoFinal.Views.vPrincipal"
     BackgroundColor="#FAFAFF">
 
-    <ScrollView>
-        <VerticalStackLayout Padding="20,40,20,20" Spacing="20">
+    <Grid RowDefinitions="Auto, *">
 
-            <!-- ENCABEZADO -->
-            <HorizontalStackLayout VerticalOptions="Center" Spacing="10">
-                <ImageButton Source="menu.png"
-                             x:Name="btnMenu"
-                             WidthRequest="28"
-                             HeightRequest="28"
-                             BackgroundColor="Transparent"
-                             Clicked="btnMenu_Clicked"/>
+        <!-- TODO EL CONTENIDO SCROLLEABLE -->
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout Padding="20,40,20,20" Spacing="20">
 
-                <VerticalStackLayout>
-                    <Label Text="Mis Activos"
-                           FontSize="22"
-                           FontAttributes="Bold"
-                           TextColor="#000"/>
-                    <!-- ahora enlazado a la propiedad Resumen del BindingContext -->
-                    <Label Text="{Binding Resumen}"
-                           FontSize="13"
-                           TextColor="#666"/>
-                </VerticalStackLayout>
+                <!-- ENCABEZADO -->
+                <HorizontalStackLayout VerticalOptions="Center" Spacing="10">
+                    <ImageButton Source="menu.png"
+                                 x:Name="btnMenu"
+                                 WidthRequest="28"
+                                 HeightRequest="28"
+                                 BackgroundColor="Transparent"
+                                 Clicked="btnMenu_Clicked"/>
 
-                <HorizontalStackLayout HorizontalOptions="EndAndExpand" Spacing="15">
-                    <ImageButton Source="bell.png"
-                                 WidthRequest="24"
-                                 HeightRequest="24"
-                                 BackgroundColor="Transparent"/>
-                    <Frame WidthRequest="35"
-                           HeightRequest="35"
-                           CornerRadius="20"
-                           HasShadow="False"
-                           Padding="0"
-                           BackgroundColor="#EAEAFF">
-                        <Image Source="usuario.png"
-                               Aspect="AspectFill"
-                               VerticalOptions="Center"
-                               HorizontalOptions="Center"/>
-                    </Frame>
-                </HorizontalStackLayout>
-            </HorizontalStackLayout>
-
-            <!-- BUSCADOR -->
-            <Frame CornerRadius="25"
-                   BackgroundColor="White"
-                   HasShadow="True"
-                   Padding="15,5"
-                   HeightRequest="45">
-                <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
-                    <Image Source="search.png"
-                           WidthRequest="20"
-                           HeightRequest="20"
-                           VerticalOptions="Center"/>
-                    <Entry Placeholder="Buscar activos..."
-                           FontSize="14"
-                           TextColor="Black"
-                           PlaceholderColor="#999"
-                           BackgroundColor="Transparent"/>
-                </HorizontalStackLayout>
-            </Frame>
-
-            <!-- RESUMEN -->
-            <Grid ColumnDefinitions="*,*" ColumnSpacing="15">
-
-                <!-- Total activos -->
-                <Frame BackgroundColor="White"
-                       CornerRadius="15"
-                       HasShadow="True"
-                       Padding="20">
                     <VerticalStackLayout>
-                        <Label Text="Total Activos"
-                               FontSize="13"
-                               TextColor="#555"/>
-                        <!-- Binding a TotalActivos -->
-                        <Label Text="{Binding TotalActivos}"
-                               FontSize="26"
+                        <Label Text="Mis Activos"
+                               FontSize="22"
                                FontAttributes="Bold"
                                TextColor="#000"/>
-                    </VerticalStackLayout>
-                </Frame>
-
-                <!-- Valor total -->
-                <Frame BackgroundColor="White"
-                       CornerRadius="15"
-                       HasShadow="True"
-                       Padding="20">
-                    <VerticalStackLayout>
-                        <Label Text="Valor Total"
+                        <Label Text="{Binding Resumen}"
                                FontSize="13"
-                               TextColor="#555"/>
-                        <!-- Binding a ValorTotal -->
-                        <Label Text="{Binding ValorTotal}"
-                               FontSize="26"
-                               FontAttributes="Bold"
-                               TextColor="#000"/>
+                               TextColor="#666"/>
                     </VerticalStackLayout>
-                </Frame>
-            </Grid>
 
-            <!-- TÍTULO SECCIÓN -->
-            <Label Text="ACTIVOS ASIGNADOS"
-                   FontSize="13"
-                   FontAttributes="Bold"
-                   TextColor="#444"
-                   Margin="0,10,0,0"/>
-
-            <!-- LISTA DE ACTIVOS -->
-            <CollectionView ItemsSource="{Binding Activos}">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Frame CornerRadius="20"
-                               BackgroundColor="White"
-                               HasShadow="True"
-                               Margin="0,5,0,5"
-                               Padding="15">
-                            <Grid ColumnDefinitions="Auto,*,Auto"
-                                  RowDefinitions="Auto,Auto">
-
-                                <!-- Ícono -->
-                                <Frame Grid.RowSpan="2"
-                                       BackgroundColor="#F1E9FF"
-                                       CornerRadius="15"
-                                       Padding="10"
-                                       WidthRequest="50"
-                                       HeightRequest="50"
-                                       VerticalOptions="Center">
-                                    <Image Source="{Binding Icono}" 
-                                           WidthRequest="25"
-                                           HeightRequest="25"
-                                           HorizontalOptions="Center"
-                                           VerticalOptions="Center"/>
-                                </Frame>
-
-                                <!-- Nombre activo -->
-                                <Label Grid.Column="1"
-                                       Text="{Binding Nombre}"
-                                       FontSize="16"
-                                       FontAttributes="Bold"
-                                       TextColor="#000"/>
-
-                                <!-- Estado -->
-                                <Frame Grid.Column="2"
-                                       BackgroundColor="#EDEAFF"
-                                       CornerRadius="15"
-                                       Padding="10,3"
-                                       VerticalOptions="Center">
-                                    <Label Text="{Binding Estado}"
-                                           FontSize="12"
-                                           TextColor="#7C3AED"/>
-                                </Frame>
-
-                                <!-- Código y categoría -->
-                                <VerticalStackLayout Grid.Column="1"
-                                                     Grid.Row="1"
-                                                     Spacing="2">
-                                    <Label Text="{Binding Codigo}"
-                                           FontSize="13"
-                                           TextColor="#666"/>
-                                    <Label Text="{Binding Categoria}"
-                                           FontSize="13"
-                                           TextColor="#666"/>
-                                </VerticalStackLayout>
-
-                            </Grid>
+                    <HorizontalStackLayout HorizontalOptions="EndAndExpand" Spacing="15">
+                        <ImageButton Source="bell.png"
+                                     WidthRequest="24"
+                                     HeightRequest="24"
+                                     BackgroundColor="Transparent"/>
+                        <Frame WidthRequest="35"
+                               HeightRequest="35"
+                               CornerRadius="20"
+                               HasShadow="False"
+                               Padding="0"
+                               BackgroundColor="#EAEAFF">
+                            <Image Source="usuario.png"
+                                   Aspect="AspectFill"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center"/>
                         </Frame>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+                    </HorizontalStackLayout>
+                </HorizontalStackLayout>
 
-        </VerticalStackLayout>
-    </ScrollView>
+                <!-- BUSCADOR -->
+                <Frame CornerRadius="25"
+                       BackgroundColor="White"
+                       HasShadow="True"
+                       Padding="15,5"
+                       HeightRequest="45">
+                    <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+                        <Image Source="search.png"
+                               WidthRequest="20"
+                               HeightRequest="20"
+                               VerticalOptions="Center"/>
+                        <Entry Placeholder="Buscar activos..."
+                               FontSize="14"
+                               TextColor="Black"
+                               PlaceholderColor="#999"
+                               BackgroundColor="Transparent"/>
+                    </HorizontalStackLayout>
+                </Frame>
+
+                <!-- RESUMEN -->
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="15">
+                    <Frame BackgroundColor="White"
+                           CornerRadius="15"
+                           HasShadow="True"
+                           Padding="20">
+                        <VerticalStackLayout>
+                            <Label Text="Total Activos"
+                                   FontSize="13"
+                                   TextColor="#555"/>
+                            <Label Text="{Binding TotalActivos}"
+                                   FontSize="26"
+                                   FontAttributes="Bold"
+                                   TextColor="#000"/>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <Frame BackgroundColor="White"
+                           CornerRadius="15"
+                           HasShadow="True"
+                           Padding="20">
+                        <VerticalStackLayout>
+                            <Label Text="Valor Total"
+                                   FontSize="13"
+                                   TextColor="#555"/>
+                            <Label Text="{Binding ValorTotal}"
+                                   FontSize="26"
+                                   FontAttributes="Bold"
+                                   TextColor="#000"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                </Grid>
+
+                <!-- TÍTULO SECCIÓN -->
+                <Label Text="ACTIVOS ASIGNADOS"
+                       FontSize="13"
+                       FontAttributes="Bold"
+                       TextColor="#444"
+                       Margin="0,10,0,0"/>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- COLLECTIONVIEW (Fuera del ScrollView para permitir selección) -->
+        <CollectionView  
+            Grid.Row="1"
+            x:Name="listaActivos"
+            ItemsSource="{Binding Activos}"
+            SelectionMode="Single"
+            SelectionChanged="listaActivos_SelectionChanged"
+            Margin="20">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame CornerRadius="20"
+               BackgroundColor="White"
+               HasShadow="True"
+               Margin="0,5,0,5"
+               Padding="15">
+
+                        <Grid ColumnDefinitions="Auto,*,Auto" RowDefinitions="Auto,Auto">
+
+                            <Frame Grid.RowSpan="2"
+                       BackgroundColor="#F1E9FF"
+                       CornerRadius="15"
+                       Padding="10"
+                       WidthRequest="50"
+                       HeightRequest="50"
+                       VerticalOptions="Center">
+                                <Image Source="activo.png"
+                           WidthRequest="25"
+                           HeightRequest="25"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"/>
+                            </Frame>
+
+                            <Label Grid.Column="1"
+                       Text="{Binding Detalle}"
+                       FontSize="16"
+                       FontAttributes="Bold"
+                       TextColor="#000"/>
+
+                            <Frame Grid.Column="2"
+                       BackgroundColor="#EDEAFF"
+                       CornerRadius="15"
+                       Padding="10,3"
+                       VerticalOptions="Center">
+                                <Label Text="{Binding Estado}"
+                           FontSize="12"
+                           TextColor="#7C3AED"/>
+                            </Frame>
+
+                            <VerticalStackLayout Grid.Column="1"
+                                     Grid.Row="1"
+                                     Spacing="2">
+                                <Label Text="{Binding IdActivo, StringFormat='Código: {0}'}"
+                                     FontSize="13"
+                                    TextColor="#666"/>
+                                <Label Text="{Binding IdTipo, StringFormat='Tipo: {0}'}"
+                                                    FontSize="13"
+                                                    TextColor="#666"/>
+                            </VerticalStackLayout>
+
+                        </Grid>
+
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </Grid>
+
 </ContentPage>

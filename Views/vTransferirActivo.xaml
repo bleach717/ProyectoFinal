@@ -1,0 +1,73 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoFinal.Views.vTransferirActivo"
+             Title="Transferir Activo"
+             BackgroundColor="White">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <!-- Activo a transferir -->
+            <Frame CornerRadius="20" BackgroundColor="#F5F5F5" Padding="15">
+                <HorizontalStackLayout Spacing="15">
+                    <Image Source="macbook.png" HeightRequest="60" WidthRequest="80"/>
+                    <VerticalStackLayout>
+                        <Label Text="MacBook Pro 16&quot;" FontSize="18" FontAttributes="Bold"/>
+                        <Label Text="LAP-2024-001" FontSize="14" TextColor="#777"/>
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+            </Frame>
+
+            <!-- Buscar Usuario -->
+            <Label Text="Seleccionar destinatario"
+                   FontSize="16"
+                   FontAttributes="Bold"/>
+
+            <SearchBar Placeholder="Buscar usuario..."/>
+
+            <!-- Lista de Usuarios -->
+            <VerticalStackLayout Spacing="10">
+
+                <Frame CornerRadius="20" Padding="15" BackgroundColor="#FAFAFA">
+                    <HorizontalStackLayout Spacing="15">
+                        <Image Source="user_icon.png" HeightRequest="40"/>
+                        <VerticalStackLayout>
+                            <Label Text="María García" FontSize="16" FontAttributes="Bold"/>
+                            <Label Text="Desarrollo" FontSize="14" TextColor="#777"/>
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </Frame>
+
+                <Frame CornerRadius="20" Padding="15" BackgroundColor="#FAFAFA">
+                    <HorizontalStackLayout Spacing="15">
+                        <Image Source="user_icon.png" HeightRequest="40"/>
+                        <VerticalStackLayout>
+                            <Label Text="Carlos López" FontSize="16" FontAttributes="Bold"/>
+                            <Label Text="Diseño" TextColor="#777"/>
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </Frame>
+
+                <!-- Repite para los demás usuarios -->
+            </VerticalStackLayout>
+
+            <!-- Notas -->
+            <Label Text="Notas de transferencia (opcional)" FontSize="16"/>
+            <Editor HeightRequest="120" Placeholder="Agregar comentarios sobre la transferencia..." />
+
+            <!-- Botones -->
+            <Button Text="Confirmar Transferencia"
+                    BackgroundColor="#A18BFF"
+                    TextColor="White"
+                    CornerRadius="25"
+                    HeightRequest="50"/>
+
+            <Button Text="Cancelar"
+                    BackgroundColor="#EEE"
+                    TextColor="Black"
+                    CornerRadius="25"
+                    HeightRequest="50"/>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

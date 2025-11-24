@@ -1,0 +1,114 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoFinal.Views.vDetalleActivo"
+             Title="Detalles del Activo"
+             BackgroundColor="White">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <!-- Imagen del Activo -->
+            <Frame HasShadow="False" Padding="0" CornerRadius="20">
+                <Image Source="macbook.png" Aspect="AspectFill" HeightRequest="200"/>
+            </Frame>
+
+            <!-- Estado -->
+            <Label x:Name="lblEstado"
+                   Text="En uso"
+                   FontSize="14"
+                   TextColor="Green"
+                   HorizontalOptions="End"/>
+
+            <!-- Título -->
+            <Label x:Name="lblTitulo"
+                   Text="MacBook Pro 16&quot;"
+                   FontSize="24"
+                   FontAttributes="Bold"/>
+
+            <!-- Código -->
+            <Label x:Name="lblCodigo"
+                   Text="LAP-2024-001"
+                   FontSize="14"
+                   TextColor="#888" />
+
+            <!-- Botones -->
+            <HorizontalStackLayout Spacing="15">
+                <Button Text="Transferir Activo"
+                        x:Name="BtnTransferir"
+                        BackgroundColor="#9C6BFF"
+                        TextColor="White"
+                        CornerRadius="20"
+                        HorizontalOptions="FillAndExpand"/>
+                <Button Text="Reportar Problema"
+                        BackgroundColor="#EEE"
+                        TextColor="#333"
+                        CornerRadius="20"
+                        HorizontalOptions="FillAndExpand"/>
+            </HorizontalStackLayout>
+
+            <!-- Información general -->
+            <Frame BackgroundColor="#FAFAFA" CornerRadius="20" Padding="20">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Información General"
+                           FontSize="18"
+                           FontAttributes="Bold"/>
+                    <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto,Auto" ColumnSpacing="10" RowSpacing="15">
+
+                        <Label Grid.Row="0" Grid.Column="0" Text="Asignado a" TextColor="#666"/>
+                        <Label x:Name="lblPropietario" Grid.Row="0" Grid.Column="1" Text="Juan Pérez" HorizontalTextAlignment="End"/>
+
+                        <Label Grid.Row="1" Grid.Column="0" Text="Fecha de asignación" TextColor="#666"/>
+                        <Label x:Name="lblFecha" Grid.Row="1" Grid.Column="1" Text="15 de Enero, 2024" HorizontalTextAlignment="End"/>
+
+                        <Label Grid.Row="2" Grid.Column="0" Text="Valor estimado" TextColor="#666"/>
+                        <Label x:Name="lblValor" Grid.Row="2" Grid.Column="1" Text="$2,500 USD" HorizontalTextAlignment="End"/>
+
+                        <Label Grid.Row="3" Grid.Column="0" Text="Ubicación" TextColor="#666"/>
+                        <Label x:Name="lblUbica" Grid.Row="3" Grid.Column="1" Text="Oficina Central - Piso 3" HorizontalTextAlignment="End"/>
+                    </Grid>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Especificaciones -->
+            <Frame BackgroundColor="#FAFAFA" CornerRadius="20" Padding="20">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Especificaciones"
+                           FontSize="18"
+                           FontAttributes="Bold"/>
+                    <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto,Auto" ColumnSpacing="10" RowSpacing="15">
+
+                        <Label Grid.Row="0" Grid.Column="0" Text="Marca" TextColor="#666"/>
+                        <Label Grid.Row="0" Grid.Column="1" Text="Apple" HorizontalTextAlignment="End"/>
+
+                        <Label Grid.Row="1" Grid.Column="0" Text="Modelo" TextColor="#666"/>
+                        <Label Grid.Row="1" Grid.Column="1" Text="MacBook Pro 16&quot; M3" HorizontalTextAlignment="End"/>
+
+                        <Label Grid.Row="2" Grid.Column="0" Text="Número de Serie" TextColor="#666"/>
+                        <Label Grid.Row="2" Grid.Column="1" Text="C02XY1234567" HorizontalTextAlignment="End"/>
+
+                        <Label Grid.Row="3" Grid.Column="0" Text="Año" TextColor="#666"/>
+                        <Label Grid.Row="3" Grid.Column="1" Text="2024" HorizontalTextAlignment="End"/>
+                    </Grid>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Fotos -->
+            <Frame BackgroundColor="#FAFAFA" CornerRadius="20" Padding="20">
+                <VerticalStackLayout Spacing="15">
+                    <Label Text="Fotografías"
+                           FontSize="18"
+                           FontAttributes="Bold"/>
+                    <HorizontalStackLayout Spacing="10">
+                        <Image Source="macbook.png" HeightRequest="80" WidthRequest="100" Aspect="AspectFill"/>
+                        <Image Source="macbook.png" HeightRequest="80" WidthRequest="100" Aspect="AspectFill"/>
+                        <Image Source="macbook.png" HeightRequest="80" WidthRequest="100" Aspect="AspectFill"/>
+                    </HorizontalStackLayout>
+                    <Button Text="Agregar Foto"
+                            BackgroundColor="#EEE"
+                            CornerRadius="20"/>
+                </VerticalStackLayout>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
