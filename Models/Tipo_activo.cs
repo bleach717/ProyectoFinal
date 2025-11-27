@@ -10,9 +10,8 @@ namespace ProyectoFinal.Models
     {
         public int id_tipo { get; set; }
         public string nombre { get; set; }
-        public string Descripcion { get; set; }
-        public int IdImagen { get; set; }
-        public string ruta { get; set; }
+        public string descripcion { get; set; }
+        public string ruta_imagen { get; set; }
 
     }
 }

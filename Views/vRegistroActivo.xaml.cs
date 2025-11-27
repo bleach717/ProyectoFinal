@@ -36,6 +36,25 @@ namespace ProyectoFinal.Views
         private void pickerTipoActivo_SelectedIndexChanged(object sender, EventArgs e)
         {
             var tipo = (TipoActivo)pickerTipoActivo.SelectedItem;
+            if (tipo == null)
+                return;
+
+            try
+            {
+                if (!string.IsNullOrWhiteSpace(tipo.ruta_imagen))
+                {
+                    string url = $"http://127.0.0.1/wsproyecto/imagenes_tipo/{tipo.ruta_imagen}";
+                    imgTipo.Source = ImageSource.FromUri(new Uri(url));
+                }
+                else
+                {
+                    imgTipo.Source = "noimage.png";
+                }
+            }
+            catch
+            {
+                imgTipo.Source = "noimage.png"; // fallback
+            }
 
         }
         private async void btnGuardar_Clicked(object sender, EventArgs e)
@@ -101,10 +120,11 @@ namespace ProyectoFinal.Views
             }
         }
 
-        private void btnTipo_Clicked(object sender, EventArgs e)
+        private async void btnTipo_Clicked(object sender, EventArgs e)
         {
-
+            await Navigation.PushAsync(new vRegistroTipoActivo());
         }
+        
 
         private void swDisponible_Toggled(object sender, ToggledEventArgs e)
         {

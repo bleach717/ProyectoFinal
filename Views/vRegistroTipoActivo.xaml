@@ -2,11 +2,52 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoFinal.Views.vRegistroTipoActivo"
-             Title="vRegistroTipoActivo">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             BackgroundColor="#FAF9FF">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="25" Spacing="18">
+
+            <!-- Título -->
+            <Label Text="Registrar Tipo de Activo"
+                   FontSize="26"
+                   FontAttributes="Bold"
+                   TextColor="Black"
+                   HorizontalOptions="Center" />
+
+            <!-- Nombre -->
+            <Label Text="Nombre" TextColor="#7C3AED" FontSize="15" FontAttributes="Bold"/>
+            <Entry x:Name="txtNombre" Placeholder="Ej: Laptop, Impresora, Escritorio" TextColor="Black"/>
+
+            <!-- Descripción -->
+            <Label Text="Descripción" TextColor="#7C3AED" FontSize="15" FontAttributes="Bold"/>
+            <Entry x:Name="txtDescripcion" Placeholder="Describe el tipo de activo" TextColor="Black"/>
+
+            <!-- Imagen -->
+            <Label Text="Imagen del Activo" TextColor="#7C3AED" FontSize="15" FontAttributes="Bold"/>
+
+            <Frame CornerRadius="15" Padding="5" HasShadow="True"
+                   BackgroundColor="#FFFFFF"
+                   HeightRequest="180">
+                <Image x:Name="imgPreview" Aspect="AspectFit"/>
+            </Frame>
+
+            <Button Text="Tomar Foto"
+                    x:Name="btnTomarFoto"
+                    BackgroundColor="#4C9AFF"
+                    TextColor="White"
+                    CornerRadius="25"
+                    HeightRequest="45"
+                    Clicked="btnTomarFoto_Clicked"/>
+
+            <!-- Botón Guardar -->
+            <Button Text="Registrar Tipo de Activo"
+                    x:Name="btnGuardar"
+                    BackgroundColor="#7C3AED"
+                    TextColor="White"
+                    CornerRadius="25"
+                    HeightRequest="50"
+                    Clicked="btnGuardar_Clicked"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

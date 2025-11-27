@@ -20,7 +20,10 @@
             <Picker x:Name="pickerTipoActivo"
                     ItemDisplayBinding="{Binding nombre}" 
                     TextColor="White"
-                    BackgroundColor="#7C3AED"/>
+                    TitleColor="White"
+                    BackgroundColor="#7C3AED"
+                    SelectedIndexChanged="pickerTipoActivo_SelectedIndexChanged"/>
+
 
             <!-- Imagen del tipo -->
             <Frame CornerRadius="15" Padding="5" HasShadow="True"
