@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoFinal.Views.vRegistroActivo"
+             BackgroundColor="#FAF9FF">
+
+    
+    <ScrollView>
+        <VerticalStackLayout Padding="25" Spacing="18">
+
+            <!-- Título -->
+            <Label Text="Registrar Activo"
+                   FontSize="26"
+                   FontAttributes="Bold"
+                   TextColor="Black"
+                   HorizontalOptions="Center" />
+
+            <!-- Selección Tipo de Activo -->
+            <Label Text="Tipo de Activo" FontSize="14" TextColor="Black"/>
+            <Picker x:Name="pickerTipoActivo"
+                    ItemDisplayBinding="{Binding nombre}" 
+                    TextColor="White"
+                    BackgroundColor="#7C3AED"/>
+
+            <!-- Imagen del tipo -->
+            <Frame CornerRadius="15" Padding="5" HasShadow="True"
+                   BackgroundColor="#FFFFFF"
+                   HeightRequest="150">
+                <Image x:Name="imgTipo" Aspect="AspectFit"/>
+            </Frame>
+            <!-- Detalle -->
+            <Label Text="Nombre" TextColor="#7C3AED" FontSize="15" FontAttributes="Bold"/>
+            <Entry x:Name="txtNombre" Placeholder="Descripción del activo" TextColor="Black"/>
+            
+            <!-- Detalle --> 
+            <Label Text="Detalle" TextColor="#7C3AED" FontSize="15" FontAttributes="Bold"/>
+            <Entry x:Name="txtDetalle" Placeholder="Descripción del activo" TextColor="Black"/>
+
+            <!-- Marca -->
+            <Label Text="Marca" TextColor="#7C3AED" FontSize="15" FontAttributes="Bold"/>
+            <Entry x:Name="txtMarca" Placeholder="Lenovo, Samsung, etc." TextColor="Black"/>
+
+            <!-- Modelo -->
+            <Label Text="Modelo" TextColor="#7C3AED" FontSize="15" FontAttributes="Bold"/>
+            <Entry x:Name="txtModelo" Placeholder="ThinkPad, Galaxy S20, etc." TextColor="Black"/>
+
+            <!-- Serie -->
+            <Label Text="Serie" TextColor="#7C3AED" FontSize="15" FontAttributes="Bold"/>
+            <Entry x:Name="txtSerie" Placeholder="Número de serie" TextColor="Black"/>
+
+            <!-- Año -->
+            <Label Text="Año" TextColor="#7C3AED" FontSize="15" FontAttributes="Bold"/>
+            <Entry x:Name="txtAnio" Placeholder="Año" Keyboard="Numeric" MaxLength="4" TextColor="Black"/>
+
+            <!-- Estado -->
+            <Label Text="Estado" TextColor="#7C3AED" FontSize="15" FontAttributes="Bold"/>
+            <Entry x:Name="txtEstado" Placeholder="Nuevo, Usado, Reparación, etc." TextColor="Black"/>
+
+            <!-- Costo -->
+            <Label Text="Costo" TextColor="#7C3AED" FontSize="15" FontAttributes="Bold"/>
+            <Entry x:Name="txtCosto" Keyboard="Numeric" Placeholder="0.00" TextColor="Black"/>
+
+            <!-- Ubicación -->
+            <Label Text="Ubicación" TextColor="#7C3AED" FontSize="15" FontAttributes="Bold"/>
+            <Entry x:Name="txtUbicacion" Placeholder="Bodega, Oficina 2, Piso 1, etc." TextColor="Black"/>
+
+            <!-- Disponible -->
+            <HorizontalStackLayout Spacing="10">
+                <Label Text="Disponible"
+           VerticalOptions="Center"
+           TextColor="#7C3AED"
+           FontSize="15"
+           FontAttributes="Bold" />
+
+                <Switch x:Name="swDisponible"
+            IsToggled="True"
+            Toggled="swDisponible_Toggled"/>
+
+                <Label x:Name="lblEstado"
+           VerticalOptions="Center"
+           Text="Sí"
+           FontSize="15"
+           FontAttributes="Bold" />
+            </HorizontalStackLayout>
+            <!-- Botones -->
+            <Button Text="Registrar Activo"
+                    x:Name="btnGuardar"
+                    BackgroundColor="#7C3AED"
+                    TextColor="White"
+                    CornerRadius="25"
+                    HeightRequest="50"
+                    Clicked="btnGuardar_Clicked"/>
+
+                <Button Text="Agregar Tipo de Activo"
+                    x:Name="btnTipo"
+                    BackgroundColor="#4C9AFF"
+                    TextColor="White"
+                    CornerRadius="25"
+                    HeightRequest="45"
+                    Clicked="btnTipo_Clicked"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

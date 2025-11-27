@@ -78,6 +78,12 @@
 	  <MauiXaml Update="Views\vRegistro.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\vRegistroActivo.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\vRegistroTipoActivo.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\vTransferirActivo.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

@@ -4,9 +4,16 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="ProyectoFinal.Views.vPrincipal"
     BackgroundColor="#FAFAFF">
+    
 
     <Grid RowDefinitions="Auto, *">
 
+
+        <Label x:Name="lblDatos"
+               Text=""
+               FontSize="12"
+               TextColor="red"/>
+        
         <!-- TODO EL CONTENIDO SCROLLEABLE -->
         <ScrollView Grid.Row="0">
             <VerticalStackLayout Padding="20,40,20,20" Spacing="20">

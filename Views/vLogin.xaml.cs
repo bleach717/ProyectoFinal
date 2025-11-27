@@ -1,3 +1,4 @@
+using ProyectoFinal.Models;
 using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -45,15 +46,17 @@ public partial class vLogin : ContentPage
             try
             {
                 byte[] response = cliente.UploadValues("http://127.0.0.1/wsproyecto/restUsuario.php?login=1", "POST", parametros);
-
                 string json = Encoding.UTF8.GetString(response);
 
-                var user = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, object>>(json);
+                // Deserializar al modelo Usuario
+                var user = Newtonsoft.Json.JsonConvert.DeserializeObject<Usuario>(json);
 
-                await DisplayAlert("? Bienvenido", $"Hola {user["nombre"]}", "OK");
+                await DisplayAlert("Bienvenido", $"Hola {user.Nombre}", "OK");
 
-                // Ir al menú
-                await Navigation.PushAsync(new vPrincipal());
+                // Enviar variables simples a vPrincipal
+                await Navigation.PushAsync(new vPrincipal(user.id_usuario, user.Correo, user.Rol));
+
+
             }
             catch (WebException ex)
             {
