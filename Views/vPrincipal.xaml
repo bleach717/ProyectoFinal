@@ -4,18 +4,21 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="ProyectoFinal.Views.vPrincipal"
     BackgroundColor="#FAFAFF">
-    
 
-    <Grid RowDefinitions="Auto, *">
+    <!-- Ajustamos tres filas: mensaje arriba, contenido scroll, lista -->
+    <Grid RowDefinitions="Auto, Auto, *">
 
+        <!-- ⚠️ Mensajes o debug -->
+        <Label 
+            x:Name="lblDatos"
+            Grid.Row="0"
+            Text=""
+            FontSize="12"
+            TextColor="Red"
+            Margin="10,5,10,0"/>
 
-        <Label x:Name="lblDatos"
-               Text=""
-               FontSize="12"
-               TextColor="red"/>
-        
-        <!-- TODO EL CONTENIDO SCROLLEABLE -->
-        <ScrollView Grid.Row="0">
+        <!-- CONTENIDO SCROLLEABLE -->
+        <ScrollView Grid.Row="1">
             <VerticalStackLayout Padding="20,40,20,20" Spacing="20">
 
                 <!-- ENCABEZADO -->
@@ -108,7 +111,7 @@
                     </Frame>
                 </Grid>
 
-                <!-- TÍTULO SECCIÓN -->
+                <!-- TÍTULO -->
                 <Label Text="ACTIVOS ASIGNADOS"
                        FontSize="13"
                        FontAttributes="Bold"
@@ -118,9 +121,9 @@
             </VerticalStackLayout>
         </ScrollView>
 
-        <!-- COLLECTIONVIEW (Fuera del ScrollView para permitir selección) -->
+        <!-- COLLECTIONVIEW CON EDITAR / ELIMINAR -->
         <CollectionView  
-            Grid.Row="1"
+            Grid.Row="2"
             x:Name="listaActivos"
             ItemsSource="{Binding Activos}"
             SelectionMode="Single"
@@ -129,60 +132,91 @@
 
             <CollectionView.ItemTemplate>
                 <DataTemplate>
+
                     <Frame CornerRadius="20"
-               BackgroundColor="White"
-               HasShadow="True"
-               Margin="0,5,0,5"
-               Padding="15">
+                           BackgroundColor="White"
+                           HasShadow="True"
+                           Margin="0,5,0,5"
+                           Padding="15">
 
-                        <Grid ColumnDefinitions="Auto,*,Auto" RowDefinitions="Auto,Auto">
+                        <Grid ColumnDefinitions="Auto,*,Auto" RowDefinitions="Auto,Auto,Auto">
 
+                            <!-- ICONO -->
                             <Frame Grid.RowSpan="2"
-                       BackgroundColor="#F1E9FF"
-                       CornerRadius="15"
-                       Padding="10"
-                       WidthRequest="50"
-                       HeightRequest="50"
-                       VerticalOptions="Center">
+                                   BackgroundColor="#F1E9FF"
+                                   CornerRadius="15"
+                                   Padding="10"
+                                   WidthRequest="50"
+                                   HeightRequest="50"
+                                   VerticalOptions="Center">
                                 <Image Source="activo.png"
-                           WidthRequest="25"
-                           HeightRequest="25"
-                           HorizontalOptions="Center"
-                           VerticalOptions="Center"/>
+                                       WidthRequest="25"
+                                       HeightRequest="25"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"/>
                             </Frame>
 
+                            <!-- TITULO -->
                             <Label Grid.Column="1"
-                       Text="{Binding Detalle}"
-                       FontSize="16"
-                       FontAttributes="Bold"
-                       TextColor="#000"/>
+                                   Text="{Binding Detalle}"
+                                   FontSize="16"
+                                   FontAttributes="Bold"
+                                   TextColor="#000"/>
 
+                            <!-- ESTADO -->
                             <Frame Grid.Column="2"
-                       BackgroundColor="#EDEAFF"
-                       CornerRadius="15"
-                       Padding="10,3"
-                       VerticalOptions="Center">
+                                   BackgroundColor="#EDEAFF"
+                                   CornerRadius="15"
+                                   Padding="10,3"
+                                   VerticalOptions="Center">
                                 <Label Text="{Binding Estado}"
-                           FontSize="12"
-                           TextColor="#7C3AED"/>
+                                       FontSize="12"
+                                       TextColor="#7C3AED"/>
                             </Frame>
 
+                            <!-- CÓDIGO Y TIPO -->
                             <VerticalStackLayout Grid.Column="1"
-                                     Grid.Row="1"
-                                     Spacing="2">
+                                                 Grid.Row="1"
+                                                 Spacing="2">
                                 <Label Text="{Binding IdActivo, StringFormat='Código: {0}'}"
-                                     FontSize="13"
-                                    TextColor="#666"/>
+                                       FontSize="13"
+                                       TextColor="#666"/>
                                 <Label Text="{Binding IdTipo, StringFormat='Tipo: {0}'}"
-                                                    FontSize="13"
-                                                    TextColor="#666"/>
+                                       FontSize="13"
+                                       TextColor="#666"/>
                             </VerticalStackLayout>
+
+                            <!-- BOTONES EDITAR / ELIMINAR -->
+                            <HorizontalStackLayout Grid.Column="1"
+                                                   Grid.Row="2"
+                                                   HorizontalOptions="End"
+                                                   Spacing="20"
+                                                   Margin="0,5,0,0">
+
+                                <Button Text="Editar"
+                                        FontSize="13"
+                                        BackgroundColor="Transparent"
+                                        TextColor="#5A4BE7"
+                                        Padding="0"
+                                        CommandParameter="{Binding .}"
+                                        Clicked="Button_Clicked"/>
+
+                                <Button Text="Eliminar"
+                                        FontSize="13"
+                                        BackgroundColor="Transparent"
+                                        TextColor="#E53935"
+                                        Padding="0"
+                                        CommandParameter="{Binding .}"
+                                        Clicked="Button_Clicked_1"/>
+
+                            </HorizontalStackLayout>
 
                         </Grid>
 
                     </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
+
         </CollectionView>
 
     </Grid>

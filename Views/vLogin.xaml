@@ -22,8 +22,8 @@
                        HorizontalOptions="Center"/>
             </Frame>
 
-            <!-- Título -->
-            <Label Text="Gestión de Activos"
+            <!-- Titulo -->
+            <Label Text="Gestion de Activos"
                    FontSize="26"
                    FontAttributes="Bold"
                    HorizontalOptions="Center"

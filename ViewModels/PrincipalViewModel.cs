@@ -14,7 +14,7 @@ public class PrincipalViewModel : INotifyPropertyChanged
     private readonly HttpClient client = new HttpClient();
     private const string Url = "http://127.0.0.1/wsproyecto/restProyecto.php?table=activo";
 
-    public ObservableCollection<Activos> Activos { get; set; } = new();
+    public ObservableCollection<Activos_1> Activos { get; set; } = new();
 
     private string resumen;
     public string Resumen
@@ -42,7 +42,7 @@ public class PrincipalViewModel : INotifyPropertyChanged
         CargarActivos();
     }
 
-    private async void CargarActivos()
+    public async void CargarActivos()
     {
         try
         {
@@ -57,7 +57,7 @@ public class PrincipalViewModel : INotifyPropertyChanged
                 }
             };
 
-            var lista = JsonConvert.DeserializeObject<List<Activos>>(json, settings);
+            var lista = JsonConvert.DeserializeObject<List<Activos_1>>(json, settings);
 
             Activos.Clear();
             foreach (var a in lista)

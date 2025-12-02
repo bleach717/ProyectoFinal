@@ -4,7 +4,6 @@
              x:Class="ProyectoFinal.Views.vRegistroActivo"
              BackgroundColor="#FAF9FF">
 
-    
     <ScrollView>
         <VerticalStackLayout Padding="25" Spacing="18">
 
@@ -21,9 +20,7 @@
                     ItemDisplayBinding="{Binding nombre}" 
                     TextColor="White"
                     TitleColor="White"
-                    BackgroundColor="#7C3AED"
                     SelectedIndexChanged="pickerTipoActivo_SelectedIndexChanged"/>
-
 
             <!-- Imagen del tipo -->
             <Frame CornerRadius="15" Padding="5" HasShadow="True"
@@ -31,11 +28,9 @@
                    HeightRequest="150">
                 <Image x:Name="imgTipo" Aspect="AspectFit"/>
             </Frame>
+
+
             <!-- Detalle -->
-            <Label Text="Nombre" TextColor="#7C3AED" FontSize="15" FontAttributes="Bold"/>
-            <Entry x:Name="txtNombre" Placeholder="Descripción del activo" TextColor="Black"/>
-            
-            <!-- Detalle --> 
             <Label Text="Detalle" TextColor="#7C3AED" FontSize="15" FontAttributes="Bold"/>
             <Entry x:Name="txtDetalle" Placeholder="Descripción del activo" TextColor="Black"/>
 
@@ -70,21 +65,22 @@
             <!-- Disponible -->
             <HorizontalStackLayout Spacing="10">
                 <Label Text="Disponible"
-           VerticalOptions="Center"
-           TextColor="#7C3AED"
-           FontSize="15"
-           FontAttributes="Bold" />
+                       VerticalOptions="Center"
+                       TextColor="#7C3AED"
+                       FontSize="15"
+                       FontAttributes="Bold" />
 
                 <Switch x:Name="swDisponible"
-            IsToggled="True"
-            Toggled="swDisponible_Toggled"/>
+                        IsToggled="True"
+                        Toggled="swDisponible_Toggled"/>
 
                 <Label x:Name="lblEstado"
-           VerticalOptions="Center"
-           Text="Sí"
-           FontSize="15"
-           FontAttributes="Bold" />
+                       VerticalOptions="Center"
+                       Text="Sí"
+                       FontSize="15"
+                       FontAttributes="Bold" />
             </HorizontalStackLayout>
+
             <!-- Botones -->
             <Button Text="Registrar Activo"
                     x:Name="btnGuardar"
@@ -94,7 +90,7 @@
                     HeightRequest="50"
                     Clicked="btnGuardar_Clicked"/>
 
-                <Button Text="Agregar Tipo de Activo"
+            <Button Text="Agregar Tipo de Activo"
                     x:Name="btnTipo"
                     BackgroundColor="#4C9AFF"
                     TextColor="White"

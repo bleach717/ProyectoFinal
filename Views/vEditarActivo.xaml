@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoFinal.Views.vEditarActivo"
+             Title="Editar Activo"
+             BackgroundColor="White">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <!-- DETALLE -->
+            <Label Text="Detalle:" TextColor="Black" FontSize="20" />
+            <Frame BorderColor="Gray" CornerRadius="8" Padding="5" BackgroundColor="White">
+                <Entry x:Name="txtDetalle" TextColor="Black"/>
+            </Frame>
+
+            <!-- ESTADO -->
+            <Label Text="Estado:" TextColor="Black" FontSize="20"/>
+            <Frame BorderColor="Gray" CornerRadius="8" Padding="5" BackgroundColor="White">
+                <Entry x:Name="txtEstado" TextColor="Black"/>
+            </Frame>
+
+            <!-- A�O -->
+            <Label Text="A�o:" TextColor="Black" FontSize="20"/>
+            <Frame BorderColor="Gray" CornerRadius="8" Padding="5" BackgroundColor="White">
+                <Entry x:Name="txtAnio" Keyboard="Numeric" TextColor="Black"/>
+            </Frame>
+
+            <!-- COSTO -->
+            <Label Text="Costo:" TextColor="Black" FontSize="20"/>
+            <Frame BorderColor="Gray" CornerRadius="8" Padding="5" BackgroundColor="White">
+                <Entry x:Name="txtCosto" Keyboard="Numeric" TextColor="Black"/>
+            </Frame>
+
+            <!-- MARCA -->
+            <Label Text="Marca:" TextColor="Black" FontSize="20"/>
+            <Frame BorderColor="Gray" CornerRadius="8" Padding="5" BackgroundColor="White">
+                <Entry x:Name="txtMarca" TextColor="Black"/>
+            </Frame>
+
+            <!-- MODELO -->
+            <Label Text="Modelo:" TextColor="Black" FontSize="20"/>
+            <Frame BorderColor="Gray" CornerRadius="8" Padding="5" BackgroundColor="White">
+                <Entry x:Name="txtModelo" TextColor="Black"/>
+            </Frame>
+
+            <!-- SERIE -->
+            <Label Text="Serie:" TextColor="Black" FontSize="20"/>
+            <Frame BorderColor="Gray" CornerRadius="8" Padding="5" BackgroundColor="White">
+                <Entry x:Name="txtSerie" TextColor="Black"/>
+            </Frame>
+
+            <!-- UBICACI�N -->
+            <Label Text="Ubicaci�n:" TextColor="Black" FontSize="20"/>
+            <Frame BorderColor="Gray" CornerRadius="8" Padding="5" BackgroundColor="White">
+                <Entry x:Name="txtUbicacion" TextColor="Black"/>
+            </Frame>
+
+            <!-- BOT�N GUARDAR -->
+            <Button Text="Guardar Cambios"
+                    BackgroundColor="#7C3AED"
+                    TextColor="White"
+                    CornerRadius="12"
+                    Padding="12"
+                    Clicked="BtnGuardar_Clicked"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

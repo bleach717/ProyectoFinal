@@ -1,73 +1,111 @@
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoFinal.Views.vTransferirActivo"
-             Title="Transferir Activo"
-             BackgroundColor="White">
+             BackgroundColor="#F4F6F9"
+             Title="Transferir Activo">
 
-    <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="20">
+    <VerticalStackLayout Padding="20" Spacing="15">
 
-            <!-- Activo a transferir -->
-            <Frame CornerRadius="20" BackgroundColor="#F5F5F5" Padding="15">
-                <HorizontalStackLayout Spacing="15">
-                    <Image Source="macbook.png" HeightRequest="60" WidthRequest="80"/>
-                    <VerticalStackLayout>
-                        <Label Text="MacBook Pro 16&quot;" FontSize="18" FontAttributes="Bold"/>
-                        <Label Text="LAP-2024-001" FontSize="14" TextColor="#777"/>
-                    </VerticalStackLayout>
-                </HorizontalStackLayout>
-            </Frame>
+        <!-- TÍTULO -->
+        <Label Text="Transferencia de Activo"
+               FontAttributes="Bold"
+               FontSize="22"
+               TextColor="#0A3D62"
+               HorizontalOptions="Center" />
 
-            <!-- Buscar Usuario -->
-            <Label Text="Seleccionar destinatario"
-                   FontSize="16"
-                   FontAttributes="Bold"/>
+        <!-- CUADRO DETALLE -->
+        <Frame Padding="15"
+               BackgroundColor="White"
+               CornerRadius="15"
+               BorderColor="#D0D3D4"
+               HasShadow="True">
 
-            <SearchBar Placeholder="Buscar usuario..."/>
+            <VerticalStackLayout Spacing="6">
+                <Label Text="Activo:" 
+                       FontAttributes="Bold"
+                       TextColor="#0A3D62"/>
 
-            <!-- Lista de Usuarios -->
-            <VerticalStackLayout Spacing="10">
+                <Label x:Name="lblActivo"
+                       FontSize="17"
+                       TextColor="#1B2631"/>
 
-                <Frame CornerRadius="20" Padding="15" BackgroundColor="#FAFAFA">
-                    <HorizontalStackLayout Spacing="15">
-                        <Image Source="user_icon.png" HeightRequest="40"/>
-                        <VerticalStackLayout>
-                            <Label Text="María García" FontSize="16" FontAttributes="Bold"/>
-                            <Label Text="Desarrollo" FontSize="14" TextColor="#777"/>
-                        </VerticalStackLayout>
-                    </HorizontalStackLayout>
-                </Frame>
+                <Label Text="Propietario Actual:" 
+                       Margin="0,10,0,0"
+                       FontAttributes="Bold"
+                       TextColor="#0A3D62"/>
 
-                <Frame CornerRadius="20" Padding="15" BackgroundColor="#FAFAFA">
-                    <HorizontalStackLayout Spacing="15">
-                        <Image Source="user_icon.png" HeightRequest="40"/>
-                        <VerticalStackLayout>
-                            <Label Text="Carlos López" FontSize="16" FontAttributes="Bold"/>
-                            <Label Text="Diseño" TextColor="#777"/>
-                        </VerticalStackLayout>
-                    </HorizontalStackLayout>
-                </Frame>
-
-                <!-- Repite para los demás usuarios -->
+                <Label x:Name="lblPropietarioActual"
+                       FontSize="17"
+                       TextColor="#1B2631"/>
             </VerticalStackLayout>
+        </Frame>
 
-            <!-- Notas -->
-            <Label Text="Notas de transferencia (opcional)" FontSize="16"/>
-            <Editor HeightRequest="120" Placeholder="Agregar comentarios sobre la transferencia..." />
+        <!-- BUSCADOR -->
+        <Entry x:Name="txtBuscarUsuario"
+               Placeholder="Buscar usuario…"
+               BackgroundColor="White"
+               TextColor="#1B2631"
+               PlaceholderColor="#8395A7"
+               
+               HeightRequest="45"
+               Margin="0,10,0,0"
+               TextChanged="txtBuscarUsuario_TextChanged"/>
 
-            <!-- Botones -->
-            <Button Text="Confirmar Transferencia"
-                    BackgroundColor="#A18BFF"
-                    TextColor="White"
-                    CornerRadius="25"
-                    HeightRequest="50"/>
+        <!-- LISTA USUARIOS -->
+        <CollectionView x:Name="listaUsuarios"
+                        SelectionMode="Single"
+                        SelectionChanged="listaUsuarios_SelectionChanged"
+                        HeightRequest="250">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="12"
+                           Margin="0,8"
+                           CornerRadius="12"
+                           BackgroundColor="White"
+                          
+                           HasShadow="True">
+                        <VerticalStackLayout>
+                            <Label Text="{Binding Nombre}"
+                                   FontSize="16"
+                                   FontAttributes="Bold"
+                                   TextColor="#0A3D62"/>
+
+                            <Label Text="{Binding Apellido}"
+                                   FontSize="15"
+                                   TextColor="#1B2631"/>
+
+                            <Label Text="{Binding Correo}"
+                                   FontSize="12"
+                                   TextColor="#8395A7"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+        <!-- BOTONES -->
+        <HorizontalStackLayout Spacing="20" Margin="0,20,0,0">
 
             <Button Text="Cancelar"
-                    BackgroundColor="#EEE"
-                    TextColor="Black"
-                    CornerRadius="25"
-                    HeightRequest="50"/>
-        </VerticalStackLayout>
-    </ScrollView>
+                    BackgroundColor="#B2BABB"
+                    TextColor="White"
+                    CornerRadius="10"
+                    HeightRequest="45"
+                    Clicked="BtnCancelar_Clicked"
+                    HorizontalOptions="FillAndExpand"/>
 
+            <Button Text="Confirmar"
+                    BackgroundColor="#0A3D62"
+                    TextColor="White"
+                    CornerRadius="10"
+                    HeightRequest="45"
+                    Clicked="BtnConfirmar_Clicked"
+                    HorizontalOptions="FillAndExpand"/>
+
+        </HorizontalStackLayout>
+
+    </VerticalStackLayout>
 </ContentPage>

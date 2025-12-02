@@ -10,7 +10,6 @@ namespace ProyectoFinal.Models
     {
         public int IdActivo { get; set; }
         public int id_tipo { get; set; }
-        public string nombre { get; set; }
         public string Detalle { get; set; }
         public string Marca { get; set; }
         public string Modelo { get; set; }

@@ -72,11 +72,6 @@ namespace ProyectoFinal.Views
                     await DisplayAlert("Error", "Ingrese una descripción.", "OK");
                     return;
                 }
-                if (string.IsNullOrWhiteSpace(txtNombre.Text))
-                {
-                    await DisplayAlert("Error", "Ingrese un nombre.", "OK");
-                    return;
-                }
 
                 WebClient cliente = new WebClient();
                 NameValueCollection parametros = new NameValueCollection();
@@ -84,7 +79,6 @@ namespace ProyectoFinal.Views
                 var tipo = (TipoActivo)pickerTipoActivo.SelectedItem;
 
                 parametros.Add("id_tipo", tipo.id_tipo.ToString());
-                parametros.Add("nombre", txtNombre.Text);
                 parametros.Add("detalle", txtDetalle.Text);
                 parametros.Add("Marca", txtMarca.Text);
                 parametros.Add("Modelo", txtModelo.Text);
